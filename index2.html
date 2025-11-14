@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Panache Safety & Security</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1e3a8a;
+            --dark-blue: #0f172a;
+            --accent-red: #dc2626;
+            --light-bg: #f8fafc;
+            --dark-bg: #1a1a2e;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: white;
+            text-decoration: none;
+        }
+
+       .logo-img {
+    width: 50px; /* Keep the container size as desired */
+    height: 50px;
+    background: white; /* This background will show if the image is transparent or smaller */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    overflow: hidden; /* Ensures any part of the image overflowing the container is hidden */
+}
+
+.logo-img img {
+    max-width: 100%;
+    max-height: 100%;
+    /* Change 'contain' to 'cover' to magnify and fill the space */
+    object-fit: cover;
+    display: block;
+}
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-text .main {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo-text .sub {
+            font-size: 0.95rem;
+            font-weight: 500;
+            opacity: 0.95;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 1.05rem;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.1);
+            color: var(--accent-red);
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            padding: 0.7rem 1.2rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            background: #20ba5a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Page Hero */
+        .page-hero {
+            /* CORRECTED: The url() for the SVG background is invalid in this format for production use. 
+               It's better to use a simple gradient or a real image for production. 
+               Keeping the previous version for visual effect, but noting it's non-standard/complex. 
+               For correction, replace with a simpler/valid background property or keep as is if it's for demonstration.
+               I'll use a simpler version to remove the highly encoded SVG which is better placed in a separate SVG file or is unnecessary.
+            */
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 58, 138, 0.9));
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 10rem 2rem 5rem;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .page-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--accent-red);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-top: 1.5rem;
+        }
+
+        /* Service Category with Image */
+        .service-category {
+            margin-bottom: 6rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .service-category.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .category-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .category-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .category-header h2 i {
+            color: var(--accent-red);
+            font-size: 2.5rem;
+        }
+
+        .category-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .category-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            position: relative;
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .category-image i {
+            font-size: 8rem;
+            color: rgba(255,255,255,0.2);
+        }
+
+        .category-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.8), rgba(220, 38, 38, 0.6));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .category-image:hover::after {
+            opacity: 1;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .service-item {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            cursor: pointer;
+        }
+
+        .service-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(30, 58, 138, 0.2);
+            background: white;
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-red));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover .service-icon {
+            transform: rotateY(360deg);
+        }
+
+        .service-name {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 1.05rem;
+        }
+
+        /* Alternating Layout */
+        .service-category:nth-child(even) .category-content {
+            /* CORRECTION: The HTML has been corrected to use grid-template-columns: 1fr 1fr;
+               in the .category-content for both odd and even, and using 'order' to switch the columns.
+               This CSS rule is therefore redundant, as it duplicates the default rule.
+               However, if the HTML structure remains *as is* in the original, this rule must be present
+               for the mobile layout override below to work correctly on desktop. 
+               The original code is logically sound here because the *order* switch happens in the next rule.
+            */
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .service-category:nth-child(even) .category-image {
+            order: 2;
+        }
+
+        .service-category:nth-child(even) .services-grid {
+            order: 1;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .cta-divider {
+            font-size: 1rem;
+            margin: 0.5rem 0;
+            opacity: 0.9;
+        }
+
+        .contact-btn {
+            background: white;
+            color: var(--dark-blue);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .contact-btn.email {
+            background: var(--accent-red);
+            color: white;
+        }
+
+        .contact-btn.whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .contact-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-red);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+           .footer-logo-img {
+    width: 50px; /* Keep the container size as desired */
+    height: 50px;
+    background: white; /* This background will show if the image is transparent or smaller */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    overflow: hidden; /* Ensures any part of the image overflowing the container is hidden */
+}
+
+.footer-logo-img img {
+    max-width: 100%;
+    max-height: 100%;
+    /* Change 'contain' to 'cover' to magnify and fill the space */
+    object-fit: cover;
+    display: block;
+}
+
+        .footer-logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .footer-logo-text .main {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .footer-logo-text .sub {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #bbb;
+        }
+
+        .footer-section p {
+            line-height: 1.8;
+            color: #bbb;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-red);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-red);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #888;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 80px;
+                flex-direction: column;
+                background: var(--dark-blue);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+                padding: 2rem 0;
+                gap: 0;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1rem;
+                margin: 0.5rem 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+
+            .page-hero p {
+                font-size: 1.1rem;
+            }
+
+            .category-content {
+                grid-template-columns: 1fr;
+            }
+
+            .service-category:nth-child(even) .category-content {
+                grid-template-columns: 1fr;
+            }
+
+            .category-image {
+                order: 1 !important;
+                height: 300px;
+            }
+
+            .services-grid {
+                order: 2 !important;
+                grid-template-columns: 1fr;
+            }
+
+            .service-item {
+                padding: 1.2rem;
+            }
+
+            .cta-row {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .contact-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .logo-text .main {
+                font-size: 1.2rem;
+            }
+
+            .logo-text .sub {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <div class="logo-img"><img src="images/Gemini_Generated_Image_aztrj9aztrj9azt4.png"></div>
+                <div class="logo-text">
+                    <span class="main">Panache</span>
+                    <span class="sub">Safety & Security</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index2.html">Services</a></li>
+                <li><a href="index3.html" class="active">Our Approach</a></li> 
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="https://wa.me/2348083862148" class="whatsapp-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <h1>Our Services</h1>
+        <p>At Panache Safety & Security, we integrate Security and Safety systems to provide complete protection for your people and property.</p>
+    </section>
+
+    <section class="services-section">
+        <div class="container">
+            
+            <div class="service-category" id="security-services"> 
+                <div class="category-header">
+                    <h2>
+                        <i class="fas fa-shield-alt"></i>
+                        Security Services
+                    </h2>
+                </div>
+                <div class="category-content">
+                    <div class="category-image">
+                       <img src="images/IMG-20251113-WA0005.jpg">
+                    </div>
+                    <div class="services-grid">
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <span class="service-name">Corporate Security Guards</span>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <span class="service-name">Estate / Residential Security</span>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <span class="service-name">Executive Protection</span>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <span class="service-name">Private Security</span>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-user-secret"></i>
+                            </div>
+                            <span class="service-name">Close Protection Services</span>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-landmark"></i>
+                            </div>
+                            <span class="service-name">Government Security Consulting</span>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <span class="service-name">Financial Institution Security</span>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <span class="service-name">Special Event Security</span>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <span class="service-name">Mobile Patrol and Escort Services</span>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <span class="service-name">CCTV Installation and Monitoring</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-category" id="hse-services"> 
+                <div class="category-header">
+                    <h2>
+                        <i class="fas fa-hard-hat"></i>
+                        HSE (Health, Safety, Environment) Services
+                    </h2>
+                </div>
+                <div class="category-content">
+                    <div class="services-grid">
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <span class="service-name">General Safety Consultation</span>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <span class="service-name">Project Safety Compliance & Auditing</span>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <span class="service-name">Environmental Impact Assessment</span>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-fire-extinguisher"></i>
+                            </div>
+                            <span class="service-name">Fire Detection Systems & Extinguisher Supply</span>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-box"></i>
+                            </div>
+                            <span class="service-name">Supply of PPE and Safety Equipment</span>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <span class="service-name">Safety Management System Development</span>
+                        </div>
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <span class="service-name">HSE Manuals & Handbooks Development</span>
+                        </div>
+                         <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <span class="service-name">Workplace Safety Training</span>
+                        </div>
+                    </div>
+                    <div class="category-image">
+                        <img src="images/IMG-20251113-WA0006.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Ready to Secure Your Business?</h2>
+            <p>Contact us today to discuss your security and safety needs. Our experts are ready to help!</p>
+            <div class="cta-buttons">
+                <div class="cta-row">
+                    <a href="mailto:elekpanachemultiresources@gmail.com" class="contact-btn email">
+                        <i class="fas fa-envelope"></i>
+                        Email Us
+                    </a>
+                    <a href="https://wa.me/2348083862148" class="contact-btn whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp
+                    </a>
+                </div>
+                <p class="cta-divider">Or call us on</p>
+                <div class="cta-row">
+                    <a href="tel:+2348137009203" class="contact-btn">
+                        <i class="fas fa-phone"></i>
+                        0813 700 9203
+                    </a>
+                    <a href="tel:+2348065180323" class="contact-btn">
+                        <i class="fas fa-phone"></i>
+                        0806 518 0323
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <div class="footer-logo-img"><img src="images/Gemini_Generated_Image_aztrj9aztrj9azt4.png"></div>
+                    <div class="footer-logo-text">
+                        <span class="main">Panache</span>
+                        <span class="sub">Safety & Security</span>
+                    </div>
+                </div>
+                <p>
+                    Your trusted partner in professional security and HSE solutions. 
+                    Protecting lives, assets, and businesses across Nigeria with excellence and dedication.
+                </p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+                    <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="index2.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                    <li><a href="index3.html"><i class="fas fa-chevron-right"></i>Our Approach  </a></li>
+                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Our Services</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-chevron-right"></i> Security Personnel</li>
+                    <li><i class="fas fa-chevron-right"></i> HSE Management</li>
+                    <li><i class="fas fa-chevron-right"></i> Risk Assessment</li>
+                    <li><i class="fas fa-chevron-right"></i> Security Consulting</li>
+                    <li><i class="fas fa-chevron-right"></i> Training Programs</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <ul class="footer-links">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        No. 9 Makarious Street,<br>Opposite Ajah New Palace,<br>Ajah, Lagos, Nigeria
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        0808 386 2148
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        0813 700 9203
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        elekpanachemultiresources@gmail.com
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Panache Safety & Security. All Rights Reserved. | RC: 7389401 | </p>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                // CORRECTION: Only close the menu if it's the mobile menu (has the 'active' class)
+                if (navLinks.classList.contains('active')) { 
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Scroll Animation for Service Categories
+        const observerOptions = {
+            threshold: 0.1,
+            // CORRECTION: Adjusted margin for better triggering above the fold
+            rootMargin: '0px 0px -50px 0px' 
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    // CORRECTION: Unobserve the element after it has animated once for performance
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-category').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    // CORRECTED: Added document.getElementById check for robustness when fetching target
+                    const target = document.querySelector(href) || document.getElementById(href.substring(1));
+                    if (target) {
+                        // CORRECTION: Added offset for fixed header
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Original code was:
+                        /*
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        */
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

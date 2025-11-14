@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training & Consultation - Panache Safety & Security</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1e3a8a;
+            --dark-blue: #0f172a;
+            --accent-red: #dc2626;
+            --accent-gold: #f59e0b;
+            --light-bg: #f8fafc;
+            --dark-bg: #1a1a2e;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-red));
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-red), var(--accent-gold));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-top: 1.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes cardFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Header & Navigation (Retained) */
+        header {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: white;
+            text-decoration: none;
+        }
+
+.logo-img {
+    width: 50px; /* Keep the container size as desired */
+    height: 50px;
+    background: white; /* This background will show if the image is transparent or smaller */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    overflow: hidden; /* Ensures any part of the image overflowing the container is hidden */
+}
+
+.logo-img img {
+    max-width: 100%;
+    max-height: 100%;
+    /* Change 'contain' to 'cover' to magnify and fill the space */
+    object-fit: cover;
+    display: block;
+}
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-text .main {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo-text .sub {
+            font-size: 0.95rem;
+            font-weight: 500;
+            opacity: 0.95;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 1.05rem;
+        }
+        
+        .nav-links .active-link {
+            background: var(--accent-red);
+            color: white;
+            box-shadow: 0 5px 15px rgba(220, 38, 38, 0.4);
+        }
+
+        .nav-links a:hover:not(.active-link) {
+            background: rgba(255,255,255,0.1);
+            color: var(--accent-red);
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            padding: 0.7rem 1.2rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none; /* Added to keep it clean */
+        }
+
+        .whatsapp-btn:hover {
+            background: #20ba5a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Page Hero (Retained/Adapted) */
+        .page-hero {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 58, 138, 0.9)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%231a1a2e" width="1200" height="400"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 10rem 2rem 5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(220, 38, 38, 0.2) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- SECTION 1: Training --- */
+/* Note: Assuming your global variables like --primary-blue, --accent-red, etc., are defined */
+/* Also assuming --gradient-1, --gradient-2, --gradient-3 for icons */
+
+.container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .section-badge {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--primary-blue);
+            background: rgba(30, 58, 138, 0.1);
+        }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+
+        /* 3. TRAINING SECTION SPECIFIC CSS */
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.section-badge {
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--primary-blue);
+    background: rgba(30, 58, 138, 0.1);
+}
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--dark-blue);
+    margin-bottom: 0.5rem;
+}
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* TRAINING SECTION SPECIFIC CSS */
+.training-section {
+    padding: 4rem 1rem;
+    background: linear-gradient(180deg, white 0%, var(--light-bg) 100%);
+    position: relative;
+}
+
+.training-section .container {
+    max-width: 1100px;
+}
+
+/* --- NEW COMBINED GRID STYLES --- */
+.training-combined-grid {
+    display: grid;
+    /* Create a responsive grid with 3 columns (min 300px each) */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.training-card {
+    background: white;
+    border-radius: 15px; 
+    padding: 1.5rem; 
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06); 
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.training-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-red), var(--accent-gold));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.training-card:hover::before {
+    transform: scaleX(1);
+}
+
+.training-card:hover {
+    transform: translateY(-5px) scale(1.01); 
+    box-shadow: 0 10px 30px rgba(30, 58, 138, 0.15); 
+}
+
+.training-icon {
+    width: 60px; 
+    height: 60px; 
+    background: var(--gradient-1);
+    border-radius: 15px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.6rem; 
+    margin-bottom: 1rem; 
+}
+
+.training-card:nth-child(2n) .training-icon { background: var(--gradient-2); }
+.training-card:nth-child(3n) .training-icon { background: var(--gradient-3); }
+/* Repeat gradient cycling for all subsequent cards */
+.training-card:nth-child(4n) .training-icon { background: var(--gradient-1); }
+.training-card:nth-child(5n) .training-icon { background: var(--gradient-2); }
+
+.training-card h3 {
+    font-size: 1.1rem; 
+    color: var(--dark-blue);
+    margin-bottom: 0.4rem;
+    font-weight: 700;
+}
+
+.training-card p {
+    color: var(--text-light);
+    font-size: 0.9rem; 
+    line-height: 1.5;
+}
+
+/* Image Placement Styles */
+.grid-image-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    /* Ensure images span the full width of their grid cell */
+    width: 100%; 
+    display: block;
+}
+
+/* Image 1: Spans two columns, allowing for two cards beside it in a 3-column layout */
+.wide-span {
+    grid-column: span 2; 
+}
+
+/* Image 2: Spans two rows, creating a taller visual element */
+.tall-span {
+    grid-row: span 2;
+    height: 100%; /* Important for spanning rows */
+}
+
+.training-image {
+    width: 100%;
+    height: 100%; /* Fill container height */
+    min-height: 250px; /* Ensure a minimum height for the images */
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.grid-image-item:hover .training-image {
+    transform: scale(1.05);
+}
+
+.image-overlay-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    /* Switch to 2 columns on tablet/mid-size screens */
+    .training-combined-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    
+    /* On smaller screens, images should no longer span multiple columns/rows */
+    .wide-span, .tall-span {
+        grid-column: span 1;
+        grid-row: span 1;
+        height: auto;
+    }
+
+    .training-image {
+        min-height: 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Switch to 1 column on phone screens */
+    .training-combined-grid {
+        grid-template-columns: 1fr; 
+    }
+}
+
+        /* --- SECTION 2: Consultation --- */
+/* Note: Assuming your global variables like --primary-blue, --accent-red, etc., are defined */
+
+.consultation-section {
+    padding: 4rem 1rem; /* Reduced padding from 6rem 2rem */
+    background: linear-gradient(135deg, var(--dark-blue, #1f2937) 0%, var(--primary-blue, #1e3a8a) 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.consultation-section .section-title { color: white; }
+.consultation-section .section-subtitle { 
+    color: rgba(255, 255, 255, 0.8); 
+    max-width: 700px; /* Added max-width for subtitle */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Background effects remain the same */
+.consultation-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><circle cx="100" cy="100" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="300" cy="200" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="500" cy="50" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="700" cy="150" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="900" cy="250" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="1100" cy="100" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+    opacity: 0.5;
+}
+
+.consultation-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px; /* Constrained max width slightly */
+    margin: 0 auto;
+}
+
+.consultation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Reduced minmax size */
+    gap: 1.5rem; /* Reduced gap from 2.5rem */
+    margin-top: 2rem; /* Reduced margin */
+}
+
+.consultation-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(8px); /* Slightly reduced blur */
+    border: 1px solid rgba(255,255,255,0.2); /* Reduced border size */
+    border-radius: 20px; /* Reduced border radius */
+    padding: 2rem; /* Reduced padding from 2.5rem */
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.consultation-card:hover {
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.4);
+    transform: translateY(-5px); /* Reduced lift from -10px */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3); /* Lighter shadow */
+}
+
+.consultation-icon {
+    width: 60px; /* Reduced size from 70px */
+    height: 60px; /* Reduced size from 70px */
+    background: linear-gradient(135deg, var(--accent-red, #dc2626), var(--accent-gold, #fbbf24));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem; /* Reduced font size from 1.8rem */
+    margin-bottom: 1rem; /* Reduced margin */
+    box-shadow: 0 5px 20px rgba(220, 38, 38, 0.3);
+    animation: float 3s ease-in-out infinite;
+}
+
+.consultation-card h3 {
+    font-size: 1.35rem; /* Reduced font size from 1.5rem */
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+}
+
+.consultation-card p {
+    font-size: 1rem; /* Reduced font size from 1.05rem */
+    line-height: 1.6;
+    opacity: 0.95;
+}
+
+.free-badge {
+    /* Styles remain fine, just minor margin adjustment */
+    margin-top: 0.75rem; 
+}
+
+        /* --- SECTION 3: Pricing Strategy --- */
+/* Note: Assuming your global variables like --primary-blue, --accent-red, etc., are defined */
+
+/* Ensure you have these variables defined globally, or replace them with direct color codes */
+/* Example Variables: 
+    --primary-blue: #1e3a8a;
+    --accent-red: #dc2626;
+    --accent-gold: #fbbf24;
+    --light-bg: #f9fafb;
+    --dark-blue: #1f2937;
+    --text-dark: #374151;
+*/
+
+.pricing-section {
+    padding: 4rem 1rem; 
+    background: var(--light-bg, #f9fafb); 
+    position: relative;
+}
+
+.pricing-container {
+    max-width: 1000px; 
+    margin: 0 auto;
+    text-align: center;
+}
+
+.pricing-content-wrapper {
+    display: flex;
+    gap: 2rem; 
+    align-items: center;
+    margin-top: 3rem; 
+    text-align: left;
+}
+
+/* 1. Image Box Styling (More compact) */
+.pricing-image-box {
+    flex: 1;
+    position: relative;
+    padding: 1rem; 
+    border-radius: 20px; 
+    background: var(--primary-blue, #1e3a8a); 
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.pricing-visual {
+    width: 100%;
+    max-height: 300px; 
+    object-fit: cover;
+    border-radius: 15px;
+    filter: brightness(0.9);
+}
+
+.pricing-icon-small {
+    position: absolute;
+    bottom: -20px; 
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    width: 80px; 
+    height: 80px; 
+    background: linear-gradient(135deg, var(--accent-red, #dc2626), var(--accent-gold, #fbbf24));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem; 
+    box-shadow: 0 5px 20px rgba(220, 38, 38, 0.4);
+}
+
+/* 2. Pricing Card Styling (More compact) */
+.pricing-card {
+    flex: 1.5;
+    background: white;
+    border-radius: 20px; 
+    padding: 2.5rem 3rem; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.pricing-title {
+    font-size: 1.75rem; 
+    color: var(--dark-blue, #1f2937);
+    margin-bottom: 0.75rem;
+    font-weight: 800;
+}
+
+.pricing-description {
+    font-size: 1.05rem; 
+    color: var(--text-dark, #374151);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+.value-propositions {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.value-propositions li {
+    font-size: 1rem; 
+    color: var(--text-dark, #374151);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.value-propositions li .fa-check-circle {
+    color: var(--accent-gold, #fbbf24); 
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.pricing-note {
+    font-style: italic;
+    color: var(--accent-red, #dc2626);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 2rem;
+}
+
+.quote-cta {
+    background: linear-gradient(135deg, var(--accent-red, #dc2626), var(--accent-gold, #fbbf24));
+    color: white;
+    padding: 1rem 2rem; 
+    border-radius: 50px;
+    font-size: 1rem; 
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4);
+    transition: all 0.4s ease;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.quote-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(220, 38, 38, 0.5);
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 992px) {
+    .pricing-content-wrapper {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .pricing-image-box {
+        order: 1; 
+        padding-bottom: 3rem; 
+    }
+
+    .pricing-card {
+        order: 2;
+        padding: 2rem 1.5rem;
+        text-align: center;
+    }
+    
+    .value-propositions {
+        text-align: left;
+    }
+
+    .pricing-icon-small {
+        position: absolute;
+        bottom: -25px; 
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+        /* CTA Section (Retained) */
+         .cta-section {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .cta-divider {
+            font-size: 1rem;
+            margin: 0.5rem 0;
+            opacity: 0.9;
+        }
+
+        .contact-btn {
+            background: white;
+            color: var(--dark-blue);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .contact-btn.email {
+            background: var(--accent-red);
+            color: white;
+        }
+
+        .contact-btn.whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .contact-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-red);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo-img {
+    width: 50px; /* Keep the container size as desired */
+    height: 50px;
+    background: white; /* This background will show if the image is transparent or smaller */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    overflow: hidden; /* Ensures any part of the image overflowing the container is hidden */
+}
+
+.footer-logo-img img {
+    max-width: 100%;
+    max-height: 100%;
+    /* Change 'contain' to 'cover' to magnify and fill the space */
+    object-fit: cover;
+    display: block;
+}
+
+        .footer-logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .footer-logo-text .main {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .footer-logo-text .sub {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #bbb;
+        }
+
+        .footer-section p {
+            line-height: 1.8;
+            color: #bbb;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-red);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-red);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #888;
+        }
+
+        /* Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive (Retained/Adapted) */
+        @media (max-width: 968px) {
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 80px;
+                flex-direction: column;
+                background: var(--dark-blue);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+                padding: 2rem 0;
+                gap: 0;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1rem;
+                margin: 0.5rem 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .value-card:nth-child(4) {
+                grid-column: 1 / 2;
+            }
+
+            .value-card:nth-child(5) {
+                grid-column: 2 / 3;
+            }
+
+            .advantages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-row {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .contact-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .logo-text .main {
+                font-size: 1.2rem;
+            }
+
+            .logo-text .sub {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .value-card:nth-child(4),
+            .value-card:nth-child(5) {
+                grid-column: 1 / 2;
+            }
+        }
+    </style>
+</head>
+<body>
+
+      <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <div class="logo-img"><img src="images/Gemini_Generated_Image_aztrj9aztrj9azt4.png"></div>
+                <div class="logo-text">
+                    <span class="main">Panache</span>
+                    <span class="sub">Safety & Security</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index2.html">Services</a></li>
+                <li><a href="index3.html">Our Approach</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="https://wa.me/2348083862148" class="whatsapp-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Specialized Safety Training & Consultation</h1>
+            <p>Empowering your staff and securing your operations with industry-leading HSE training and strategic safety consultation services.</p>
+        </div>
+    </section>
+
+<section id="training" class="training-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Elevate Your Team's Expertise</h2>
+            <p class="section-subtitle">Comprehensive safety and security courses tailored to meet global standards and your specific operational needs.</p>
+        </div>
+
+        <div class="training-combined-grid">
+            
+            <div class="training-card">
+                <div class="training-icon"><i class="fas fa-award"></i></div>
+                <h3>In-House Specialized HSE Training</h3>
+                <p>Customized Health, Safety, and Environment training delivered right at your location.</p>
+            </div>
+            
+            <div class="training-card">
+                <div class="training-icon"><i class="fas fa-certificate"></i></div>
+                <h3>OSHA, ISPON, & NEBOSH Courses</h3>
+                <p>Globally recognized certifications for advanced safety knowledge and compliance.</p>
+            </div>
+            
+            <div class="training-card">
+                <div class="training-icon"><i class="fas fa-fire-extinguisher"></i></div>
+                <h3>Firefighting & Prevention</h3>
+                <p>Practical and theoretical training on fire risk assessment and emergency response.</p>
+            </div>
+            
+            <div class="grid-image-item wide-span">
+                <img src="images/IMG-20251113-WA0007.jpg" alt="Practical Safety Training" class="training-image">
+            </div>
+            
+            <div class="training-card">
+                <div class="training-icon"><i class="fas fa-kit-medical"></i></div>
+                <h3>First Aid & Emergency Response</h3>
+                <p>Essential skills for immediate, life-saving response to injuries and medical emergencies.</p>
+            </div>
+            
+            <div class="training-card">
+                <div class="training-icon"><i class="fas fa-shield-halved"></i></div>
+                <h3>Security Awareness Programs</h3>
+                <p>Training for all staff on identifying threats and implementing effective security protocols.</p>
+            </div>
+            
+            <div class="training-card">
+                <div class="training-icon"><i class="fas fa-helmet-safety"></i></div>
+                <h3>Site Safety Officer Certification</h3>
+                <p>Certify personnel with knowledge to manage and monitor safety compliance on any site.</p>
+            </div>
+            
+            <div class="grid-image-item tall-span">
+                <img src="images/IMG-20251113-WA0009.jpg" alt="Certification Ceremony" class="training-image">
+            </div>
+
+            <div class="training-card">
+                <div class="training-icon"><i class="fas fa-people-arrows"></i></div>
+                <h3>HSE Job Outsourcing</h3>
+                <p>Delegate HSE needs to our certified professionals for seamless compliance and safety.</p>
+            </div>
+            
+            <div class="training-card">
+                <div class="training-icon"><i class="fas fa-trophy"></i></div>
+                <h3>Safety Seminars & Awards</h3>
+                <p>Engaging seminars to foster proactive safety culture and recognize excellence.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+    
+<section id="consultation" class="consultation-section">
+    <div class="container consultation-content">
+        <div class="section-header">
+            <h2 class="section-title">Safety Strategy, Simplified</h2>
+            <p class="section-subtitle">Leverage our expertise to build a robust safety culture and compliant, efficient operations.</p>
+        </div>
+
+        <div class="consultation-grid">
+            <div class="consultation-card">
+                <div class="consultation-icon"><i class="fas fa-thumbs-up"></i></div>
+                <h3>Free HSE Consultation (New Clients)</h3>
+                <p>New clients engaging us for up to 5 guards receive a complimentary basic Health, Safety, and Environment operational review.</p>
+            </div>
+            <div class="consultation-card">
+                <div class="consultation-icon"><i class="fas fa-location-dot"></i></div>
+                <h3>On-site Safety Training and Briefings</h3>
+                <p>We provide routine, site-specific safety briefings and comprehensive training sessions to keep your team sharp and aware.</p>
+            </div>
+            <div class="consultation-card">
+                <div class="consultation-icon"><i class="fas fa-person-chalkboard"></i></div>
+                <h3>Free Staff Lecture on General Safety</h3>
+                <p>A complimentary lecture for all client staff focused on crucial general safety awareness and best practices in the workplace.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="pricing" class="pricing-section">
+    <div class="container pricing-container">
+        <div class="section-header">
+            <h2 class="section-title">Value-Driven Partnership</h2>
+            <p class="section-subtitle">We believe exceptional security and safety shouldn't break the bank. Our model focuses on efficiency and maximizing your Return on Investment (ROI) in safety compliance.</p>
+        </div>
+
+        <div class="pricing-content-wrapper">
+            <div class="pricing-image-box">
+                <img src="images/IMG-20251113-WA0008.jpg" alt="Value-Driven Pricing Model" class="pricing-visual">
+            </div>
+
+            <div class="pricing-card">
+                <h3 class="pricing-title">Cost-Friendly, Professional, and Value-Driven</h3>
+                <p class="pricing-description">Our pricing model is engineered to be cost-friendly, ensuring access to professional high-quality training and consultation while delivering genuine value and safety compliance.</p>
+                
+                <ul class="value-propositions">
+                    <li><i class="fas fa-check-circle"></i> Transparent, no-hidden-fee structure</li>
+                    <li><i class="fas fa-check-circle"></i> Custom packages for enterprise needs</li>
+                </ul>
+
+               
+            </div>
+        </div>
+    </div>
+</section>
+
+ <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Let's Secure Your World</h2>
+            <p>Contact us today for a free consultation and discover how we can protect what matters most to you</p>
+            <div class="cta-buttons">
+                <div class="cta-row">
+                    <a href="mailto:elekpanachemultiresourses@gmail.com" class="contact-btn email">
+                        <i class="fas fa-envelope"></i>
+                        Email Us
+                    </a>
+                    <a href="https://wa.me/2348083862148" class="contact-btn whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp
+                    </a>
+                </div>
+                <p class="cta-divider">Or call us on</p>
+                <div class="cta-row">
+                    <a href="tel:+2348137009203" class="contact-btn">
+                        <i class="fas fa-phone"></i>
+                        0813 700 9203
+                    </a>
+                    <a href="tel:+2348065180323" class="contact-btn">
+                        <i class="fas fa-phone"></i>
+                        0806 518 0323
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <div class="footer-logo-img"><img src="images/Gemini_Generated_Image_aztrj9aztrj9azt4.png"></div>
+                    <div class="footer-logo-text">
+                        <span class="main">Panache</span>
+                        <span class="sub">Safety & Security</span>
+                    </div>
+                </div>
+                <p>
+                    Your trusted partner in professional security and HSE solutions. 
+                    Protecting lives, assets, and businesses across Nigeria with excellence and dedication.
+                </p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+                  <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="index2.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                    <li><a href="index3.html"><i class="fas fa-chevron-right"></i> Our Approach</a></li>
+                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Our Services</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-chevron-right"></i> Security Personnel</li>
+                    <li><i class="fas fa-chevron-right"></i> HSE Management</li>
+                    <li><i class="fas fa-chevron-right"></i> Risk Assessment</li>
+                    <li><i class="fas fa-chevron-right"></i> Security Consulting</li>
+                    <li><i class="fas fa-chevron-right"></i> Training Programs</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <ul class="footer-links">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        No. 9 Markarious Street,<br>Opposite AJAH New Palace,<br>Ajah, Lagos, Nigeria
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        0808 386 2148
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        0813 700 9203
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        elekpanachemultiresourses@gmail.com
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Panache Safety & Security. All Rights Reserved. | RC: 7389401 | </p>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Scroll Animation for Service Categories
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-category').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
