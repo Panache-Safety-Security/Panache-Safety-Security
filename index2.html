@@ -291,34 +291,53 @@
             margin-bottom: 3rem;
         }
 
-        .category-image {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-            position: relative;
-            height: 400px;
-            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+   .category-image {
+    /* Container Styles */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    position: relative;
+    
+    /* Responsive Sizing */
+    height: auto; 
+    width: 100%;
+    
+    /* BACKGROUND CHANGE: Set a neutral background (or remove the line entirely) */
+    background: white; 
+    /* The original blue background has been removed to stop it from showing through */
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 250px; 
+}
 
-        .category-image i {
-            font-size: 8rem;
-            color: rgba(255,255,255,0.2);
-        }
+/* Image Fit Styles */
+.category-image img {
+    /* Ensures the image is fully visible and dictates the container's height */
+    width: 100%;
+    height: auto; 
+    object-fit: contain; 
+}
 
-        .category-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(30, 58, 138, 0.8), rgba(220, 38, 38, 0.6));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
+/* ... rest of the CSS remains the same ... */
+
+.category-image i {
+    font-size: 8rem;
+    color: rgba(255,255,255,0.2);
+}
+
+.category-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.8), rgba(220, 38, 38, 0.6));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
 
         .category-image:hover::after {
             opacity: 1;
