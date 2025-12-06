@@ -1116,6 +1116,163 @@
         font-size: 1.1rem;
     }
 }
+
+/* Our Security Team Section */
+.team-section {
+    padding: 6rem 2rem;
+    background: var(--light-bg);
+}
+
+.team-grid {
+    display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.team-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    width: 320px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(30,58,138,0.15);
+}
+
+.team-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-red));
+    border-radius: 15px 15px 0 0;
+}
+
+.team-avatar {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 15px rgba(30,58,138,0.3);
+}
+
+.team-details {
+    flex: 1;
+}
+
+.team-details h3 {
+    color: var(--dark-blue);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.team-station {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: var(--primary-blue);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    background: rgba(30, 58, 138, 0.1);
+    border-radius: 50px;
+}
+
+.team-station i {
+    font-size: 1rem;
+}
+
+.team-desc {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.team-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(37, 211, 102, 0.1);
+    border-radius: 50px;
+    margin-top: auto;
+}
+
+.status-indicator {
+    width: 10px;
+    height: 10px;
+    background: #25D366;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.status-indicator.active {
+    background: #25D366;
+    animation: pulse 2s infinite;
+}
+
+.status-text {
+    color: #25D366;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+/* Responsive for Team Section */
+@media (max-width: 1100px) {
+    .team-grid {
+        gap: 1.5rem;
+    }
+    
+    .team-card {
+        width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .team-card {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+        
     </style>
 </head>
 <body>
@@ -1342,6 +1499,72 @@
         </div>
     </section>
 
+<!-- Our Security Team -->
+<section class="team-section animate-on-scroll">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Our Security Team</h2>
+            <p class="section-subtitle">Meet some of our dedicated security professionals</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-avatar">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <div class="team-details">
+                    <h3>Otunba</h3>
+                    <div class="team-station">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>View Point Plaza</span>
+                    </div>
+                    <p class="team-desc">Experienced security guard with years of service, specializing in commercial property security.</p>
+                </div>
+                <div class="team-status">
+                    <span class="status-indicator active"></span>
+                    <span class="status-text">On Duty</span>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-avatar">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <div class="team-details">
+                    <h3>Mr. Olajide</h3>
+                    <div class="team-station">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Phymart Supermarket</span>
+                    </div>
+                    <p class="team-desc">Retail security specialist with excellent customer service skills and surveillance expertise.</p>
+                </div>
+                <div class="team-status">
+                    <span class="status-indicator active"></span>
+                    <span class="status-text">On Duty</span>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-avatar">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <div class="team-details">
+                    <h3>Mr. Alex</h3>
+                    <div class="team-station">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Muyidin Ola Nigeria Limited</span>
+                    </div>
+                    <p class="team-desc">Industrial security expert trained in access control and emergency response procedures.</p>
+                </div>
+                <div class="team-status">
+                    <span class="status-indicator active"></span>
+                    <span class="status-text">On Duty</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    
     <!-- Customer Reviews -->
     <section class="reviews-section animate-on-scroll">
         <div class="container">
